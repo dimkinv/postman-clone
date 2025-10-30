@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Postman Clone</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Postman Clone</h1>
+  </header>
+
+  <main>
+    <section class="request-panel card">
+      <h2>Request</h2>
+      <div class="form-row">
+        <label for="method">Method</label>
+        <select id="method">
+          <option>GET</option>
+          <option>POST</option>
+          <option>PUT</option>
+          <option>PATCH</option>
+          <option>DELETE</option>
+          <option>HEAD</option>
+          <option>OPTIONS</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <label for="url">URL</label>
+        <input type="text" id="url" placeholder="https://api.example.com/resource" />
+      </div>
+      <div class="form-row">
+        <label for="body">Body</label>
+        <textarea id="body" rows="6" placeholder="Request body (optional)"></textarea>
+      </div>
+
+      <div class="headers">
+        <div class="headers-title">
+          <h3>Headers</h3>
+          <button id="add-header" type="button">+ Add Header</button>
+        </div>
+        <div id="headers-container"></div>
+      </div>
+
+      <div class="actions">
+        <button id="send" type="button" class="primary">Send</button>
+        <button id="export-curl" type="button">Export as cURL</button>
+      </div>
+    </section>
+
+    <section class="curl-panel card">
+      <h2>cURL</h2>
+      <label for="curl-input">Import cURL Command</label>
+      <textarea id="curl-input" rows="5" placeholder="curl https://api.example.com --header 'Accept: application/json'"></textarea>
+      <div class="actions">
+        <button id="parse-curl" type="button">Parse cURL</button>
+        <button id="copy-curl" type="button">Copy Exported cURL</button>
+      </div>
+      <label for="curl-output">Exported cURL</label>
+      <textarea id="curl-output" rows="5" readonly></textarea>
+    </section>
+
+    <section class="response-panel card">
+      <h2>Response</h2>
+      <div class="response-meta">
+        <div>Status: <span id="response-status">-</span></div>
+        <div id="response-time"></div>
+      </div>
+      <details open>
+        <summary>Headers</summary>
+        <pre id="response-headers"></pre>
+      </details>
+      <details open>
+        <summary>Body</summary>
+        <pre id="response-body"></pre>
+      </details>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
